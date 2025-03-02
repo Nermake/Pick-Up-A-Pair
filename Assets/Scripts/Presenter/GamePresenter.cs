@@ -71,11 +71,17 @@ namespace Presenter
 
         public void LockClick()
         {
-            if (_secondCard == null) return;
-
             foreach (var button in _view.Buttons)
             {
                 button.interactable = false;
+            }
+        }
+
+        public void UnLockClick()
+        {
+            foreach (var button in _view.Buttons)
+            {
+                button.interactable = true;
             }
         }
         

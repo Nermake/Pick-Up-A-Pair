@@ -8,6 +8,7 @@ namespace View
     public class GameView : MonoBehaviour
     {
         [SerializeField] private ResultPanel _resultPanel;
+        [SerializeField] private Timer _timer;
         [field: SerializeField] public List<CardView> CardViews { get; private set; }
         
         public List<Button> Buttons { get; private set; }
@@ -30,6 +31,7 @@ namespace View
             if (state == GameState.Win)
             {
                 _resultPanel.Text.text = "You Win!";
+                _timer.Stop();
             }
             if (state == GameState.Lose)
             {

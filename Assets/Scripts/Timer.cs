@@ -9,14 +9,18 @@ public class Timer : MonoBehaviour
     [SerializeField] private float _timer;
 
     private float _time;
+    private bool _isCompleted;
 
     private void Start()
     {
         _time = _timer;
+        _isCompleted = false;
     }
 
     public void Update()
     {
+        if (_isCompleted) return;
+        
         _time -= Time.deltaTime;
         if (_time > 0)
         {
@@ -29,6 +33,8 @@ public class Timer : MonoBehaviour
             UpdateTime(0);
         }
     }
+
+    public void Stop() => _isCompleted = true;
 
     private void UpdateTime(float value)
     {

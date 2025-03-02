@@ -27,8 +27,12 @@ namespace Presenter
                 _gamePresenter.OnCardClicked(this);
             }
         }
-        
-        public void CheckPair() => _gamePresenter.CheckPair();
+
+        public void CheckPair()
+        {
+            _gamePresenter.UnLockClick();
+            _gamePresenter.CheckPair();
+        }
         public void HideCard() => _view.HideCard();
         public void LockClick() => _gamePresenter.LockClick();
 
